@@ -1,0 +1,82 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+/* body{
+    background-color: bisque;
+} */
+.selector{
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+    display: flex;
+    width:calc(100% / 3) ;
+    justify-content: space-around;
+    width: 1200px;
+    margin: 0 auto;
+
+}
+.btn   {
+    
+    border: 1px solid grey;
+    padding: 5px 10px;
+}
+.aqua{
+    background-color: aqua;
+}
+.blue{
+    background-color: blue;
+}
+.violet{
+    background-color:violet ;
+}
+.viola{
+    background-color: blueviolet;
+}
+.green{
+    background-color: chartreuse;
+}
+.verde{
+    background-color: green;
+}
+.container{
+    max-width: 1200px;
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 auto;
+    padding-bottom: 2rem;
+}
+.casella{
+    /* background-color: aqua; */
+    width: calc(100% /10);
+    aspect-ratio: 1/1;
+    border: 1px solid white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: black;
+}
+.casella_2{
+    /* background-color: violet; */
+    width: calc(100% /9);
+    aspect-ratio: 1/1;
+    border: 1px solid white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: black;
+}
+.casella_3{
+    /* background-color: chartreuse; */
+    width: calc(100% /7);
+    aspect-ratio: 1/1;
+    border: 1px solid white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: black;
+}
+.none{
+    display: none;
+}
+
