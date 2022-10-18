@@ -56,20 +56,20 @@ bottone.addEventListener("click", function(){
 
 
 
-
+        
         casellaAttuale.addEventListener("click", function(){
 
         
-        if(lista === bombs){
-
+        if(lista[i] == bombs['bomba']){
+            
 
                 console.log('HAI PERSO');
                 casellaAttuale.classList.add("red")
                 casellaAttuale.classList.remove("aqua")
             } else{
                     console.log('Ho cliccato sulla casella ' + number + ', puoi continuare a giocare');
-                    casellaAttuale.classList.toggle("aqua")
-                    casellaAttuale.classList.toggle("blue")
+                    casellaAttuale.classList.remove("aqua")
+                    casellaAttuale.classList.add("blue")
                 
                 
 
