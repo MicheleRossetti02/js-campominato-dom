@@ -36,7 +36,6 @@ bottone.addEventListener("click", function(){
     // casellegenerator(numero_caselle_2, container);
     // // tabella 7x7
     // casellegenerator(numero_caselle_3, container);
-
     
 
 
@@ -45,36 +44,39 @@ bottone.addEventListener("click", function(){
 
     const bombs = bombegenerator(1,numero_caselle_1)
     console.log(bombs);
+
+    const lista = listanumeri(numero_caselle_1);
     // console.log(bombs.length);
+    console.log(lista);
 
     for (let i = 0; i < listaCelle.length; i++) {
         let number = i+1;
         const casellaAttuale = listaCelle[i];
+        // console.log(casellaAttuale);
 
 
 
 
-
+        casellaAttuale.addEventListener("click", function(){
 
         
-        if(casellaAttuale === 'bombs'){
+        if(lista === bombs){
 
-            casellaAttuale.addEventListener("click", function(){
 
                 console.log('HAI PERSO');
                 casellaAttuale.classList.add("red")
                 casellaAttuale.classList.remove("aqua")
-            })
             } else{
-                casellaAttuale.addEventListener('click', function(){
                     console.log('Ho cliccato sulla casella ' + number + ', puoi continuare a giocare');
                     casellaAttuale.classList.toggle("aqua")
                     casellaAttuale.classList.toggle("blue")
                 
-                })
+                
 
                 
             }
+        })
+
         
         }
 
@@ -99,7 +101,6 @@ bottone.addEventListener("click", function(){
 
     // funzione che genera le caselle
     function casellegenerator(numero_caselle, containerEl,) {
-        
         for (let i = 1; i <= numero_caselle; i++) {
 
 
@@ -110,8 +111,17 @@ bottone.addEventListener("click", function(){
             // casellaMarkUp.innerText += numero_caselle;
         }
         
-
+  //  return lista        // console.log(lista);
     
+    }
+
+    function listanumeri (numero_caselle){
+        const lista =[]
+        for (let i = 1; i <= numero_caselle; i++) {
+            lista.push(i)
+
+        }
+        return lista
     }
 
 
