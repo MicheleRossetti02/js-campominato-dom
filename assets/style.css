@@ -39,6 +39,9 @@
 .verde{
     background-color: green;
 }
+.verde{
+    background-color: red;
+}
 .container{
     max-width: 1200px;
     display: flex;

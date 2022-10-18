@@ -43,21 +43,46 @@ bottone.addEventListener("click", function(){
     // faccio una lista delle celle usate
     let listaCelle = document.querySelectorAll(".casella");
 
+    const bombs = bombegenerator(1,numero_caselle_1)
+    console.log(bombs);
+    // console.log(bombs.length);
+
     for (let i = 0; i < listaCelle.length; i++) {
         let number = i+1;
         const casellaAttuale = listaCelle[i];
-        casellaAttuale.addEventListener("click", function(){
-            console.log('Ho cliccato sulla casella ' + number);
-            casellaAttuale.classList.toggle("aqua")
-            casellaAttuale.classList.toggle("blue")
-        })
-        
-    }
 
-    const bombs = bombegenerator(1,numero_caselle_1)
-    console.log(bombs);
+
+
+
+
+
+        
+        if(casellaAttuale === 'bombs'){
+
+            casellaAttuale.addEventListener("click", function(){
+
+                console.log('HAI PERSO');
+                casellaAttuale.classList.add("red")
+                casellaAttuale.classList.remove("aqua")
+            })
+            } else{
+                casellaAttuale.addEventListener('click', function(){
+                    console.log('Ho cliccato sulla casella ' + number + ', puoi continuare a giocare');
+                    casellaAttuale.classList.toggle("aqua")
+                    casellaAttuale.classList.toggle("blue")
+                
+                })
+
+                
+            }
+        
+        }
+
+
 
     // Il computer deve generare 16 numeri casuali nello stesso range della difficoltà prescelta: le bombe.
+
+  
 
 
 
@@ -85,13 +110,37 @@ bottone.addEventListener("click", function(){
             // casellaMarkUp.innerText += numero_caselle;
         }
         
+
+    
     }
+
+
+    function generatorecasellabomba (min,max){
+        return Math.ceil(Math.random()*(max-min +1))
+    }
+
 
     function bombegenerator(min,max){
         const bombs=[];
+
+        // for (let i = 0; i < 16; i++) {
+        //     let e = generatorecasellabomba(min,max);
+
+
+        //     if(!bombs.includes(e)){
+        //         bombs.push(e)
+                
+        //     }
+
+        //     return e;
+        // }
+        // console.log(bombs[e]);
+
+
+
         while(bombs.length !== 16){
-            
             const bomba = generatorecasellabomba(min,max);
+
 
             if(!bombs.includes(bomba)){
                 bombs.push(bomba)
@@ -99,9 +148,11 @@ bottone.addEventListener("click", function(){
 
 
 
+
         }
         return bombs
+
     }
-    function generatorecasellabomba (min,max){
-        return Math.ceil(Math.random()*(max-min +1))
-    }
+
+
+    
