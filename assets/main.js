@@ -48,6 +48,8 @@ bottone.addEventListener("click", function(){
     const lista = listanumeri(numero_caselle_1);
     // console.log(bombs.length);
     console.log(lista);
+    let tries = 0;
+
 
     for (let i = 0; i < listaCelle.length; i++) {
         let number = i+1;
@@ -59,25 +61,30 @@ bottone.addEventListener("click", function(){
         
         casellaAttuale.addEventListener("click", function(){
 
+        tries++
         
-        if(lista[i] == bombs['bomba']){
+        if(is_bomb(i,bombs)){
             
 
                 console.log('HAI PERSO');
                 casellaAttuale.classList.add("red")
                 casellaAttuale.classList.remove("aqua")
+                container.innerHTML = 'GAME OVER ' + tries +' Questo è il tuo punteggio'
             } else{
+
                     console.log('Ho cliccato sulla casella ' + number + ', puoi continuare a giocare');
                     casellaAttuale.classList.remove("aqua")
                     casellaAttuale.classList.add("blue")
-                
-                
 
-                
+                    if(tries === numero_caselle_1 - 16 ){
+                        container.innerHTML = 'HAI VINTO ' + tries +' Questo è il tuo punteggio' 
+                        console.log('HAI VINTO ' + tries +' Questo è il tuo punteggio' );
+                    }
+                    
+                    
             }
         })
 
-        
         }
 
 
@@ -156,13 +163,18 @@ bottone.addEventListener("click", function(){
                 bombs.push(bomba)
             }
 
-
-
+            
 
         }
         return bombs
-
     }
 
+    function is_bomb(n,list) {
+        if(list.includes(n)){
+            return true
+        } else {
+            return false
+        }
+    }
 
     
